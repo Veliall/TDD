@@ -1,6 +1,5 @@
 package ru.netology;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -15,9 +14,9 @@ public class CreditCalculatorTest {
         final int percent = 152; // <- не хочу связываться с double, подразумеваю 15,2%
         final long amount = 1_000_000L;
 
-        final var expected = (amount + (percent * countOfYears * amount / 100)) / 10.0;
+        final var expected = (amount + (percent * countOfYears * amount / 100)/ 10.0) ;
         final var actual = calculator.getTotalAmount(1_000_000L, 152, 25);
-        Assert.assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -62,7 +61,7 @@ public class CreditCalculatorTest {
 
         final var expected = (percent * countOfYears * amount / 100) / 10.0;
         final var actual = calculator.getOverpayment(1_000_000L, 152, 25);
-        Assert.assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -73,8 +72,8 @@ public class CreditCalculatorTest {
         final int percent = 152; // <- не хочу связываться с double, подразумеваю 15,2%
         final long amount = 1_000_000L;
 
-        final var expected = ((amount + (percent * countOfYears * amount / 100)) / months) / 10.0 ;
+        final var expected = ((amount + (percent * countOfYears * amount / 100)/ 10.0) / months) ;
         final var actual = calculator.getPaymentPerMonth(1_000_000L, 152, 25);
-        Assert.assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 }
